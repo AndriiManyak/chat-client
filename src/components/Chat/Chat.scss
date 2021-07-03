@@ -1,0 +1,13 @@
+.chat {
+  display: flex;
+  justify-content: space-between;
+}
+
+.body {
+  flex: 80%;
+}
+
+.sidebar {
+  flex: 20%;
+  background: white;
+}
