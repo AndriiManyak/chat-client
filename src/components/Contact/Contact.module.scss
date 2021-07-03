@@ -1,0 +1,25 @@
+.contact {
+  display: flex;
+  align-items: center;
+}
+
+.image {
+  height: 50px;
+  width: 50px;
+  object-fit: contain;
+}
+
+.information {
+  padding: 10px;
+}
+
+.name {
+  margin-bottom: 10px;
+}
+
+.description {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
