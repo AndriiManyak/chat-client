@@ -1,11 +1,11 @@
 import React from 'react';
-import './MessagesController.scss';
 import MessagesList from "../MessagesList";
 import MessageForm from "../MessageForm";
+import styles from './MessagesController.module.scss';
 
 const MessagesController = () => {
     return (
-        <div className="messagesController">
+        <div className={styles.controller}>
             <MessagesList/>
             <MessageForm/>
         </div>
