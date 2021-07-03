@@ -1,8 +1,10 @@
 import React, {useEffect} from 'react';
-import './App.scss';
+import './App.module.scss';
 import socketCreation from "./utils/socketCreation";
 import Header from "./components/Header";
 import Chat from "./components/Chat";
+import cn from "classnames";
+import styles from './App.module.scss';
 
 const App = () => {
     useEffect(() => {
@@ -15,9 +17,11 @@ const App = () => {
     };
 
     return (
-        <div className="App">
+        <div className={styles.app}>
             <Header/>
-            <Chat/>
+            <main className={cn(styles.main, 'container')}>
+                <Chat/>
+            </main>
         </div>
     );
 };

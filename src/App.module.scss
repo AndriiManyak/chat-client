@@ -1,0 +1,14 @@
+@import 'src/styles/app';
+
+.app {
+  height: 100vh;
+
+  background: $darkBlue;
+}
+
+.main {
+  height: calc(100vh - 80px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
