@@ -5,11 +5,14 @@ import styles from './Contact.module.scss';
 const Contact = () => {
     return (
         <div className={styles.contact}>
-            <img
-                src={botImage}
-                alt={""}
-                className={styles.image}
-            />
+            <div className={styles.imageWrapper}>
+                <img
+                    src={botImage}
+                    alt={""}
+                    className={styles.image}
+                />
+            </div>
+
 
             <div className={styles.information}>
                 <p className={styles.name}>name</p>
