@@ -1,0 +1,73 @@
+@import 'src/styles/app';
+
+.message {
+  width: 80%;
+
+  border-radius: 10px;
+  box-shadow: 0 0 10px 2px rgba(0,0,0,0.4);
+
+  &.received {
+    margin-right: auto;
+
+    .header {
+      background: $lightBlue;
+    }
+
+    .text {
+      &::after {
+        content: "";
+        left: 0;
+        transform: translate(-50%, 90%) rotate(45deg);
+      }
+    }
+  }
+
+  &.sent {
+    margin-left: auto;
+
+    .header {
+      background: $lightOrange;
+    }
+
+    .text {
+      &::after {
+        content: "";
+        right: 0;
+        transform: translate(50%, 90%) rotate(45deg) ;
+      }
+    }
+  }
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+
+  padding: 15px;
+  border-radius: 10px 10px 0 0;
+}
+
+.userName {
+
+}
+
+.time {
+
+}
+
+.text {
+  position: relative;
+
+  padding: 15px;
+  background: $white;
+  border-radius: 0 0 10px 10px;
+
+  &::after {
+    position: absolute;
+    top: 0;
+    display: block;
+    height: 15px;
+    width: 15px;
+    background: $white;
+  }
+}

@@ -1,0 +1,24 @@
+@import 'src/styles/app';
+
+.contact {
+  display: flex;
+  background: $lightBlue;
+}
+
+.image {
+  height: 150px;
+  width: 150px;
+  object-fit: contain;
+}
+
+.information {
+  padding: 20px;
+}
+
+.name {
+  margin-bottom: 10px;
+}
+
+.description {
+
+}
