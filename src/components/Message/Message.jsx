@@ -1,8 +1,15 @@
-import React from 'react';
+import React, {useEffect, useRef} from 'react';
 import styles from './Message.module.scss';
 import cn from "classnames";
 
-const Message = ({type}) => {
+// eslint-disable-next-line react/prop-types
+const Message = ({type, author, time, text}) => {
+    const messageRef = useRef();
+
+    useEffect(() => {
+        if (messageRef.current) messageRef.current.scrollIntoView({behavior: 'smooth'});
+    });
+
     return (
         <div
             className={cn(
@@ -12,14 +19,17 @@ const Message = ({type}) => {
                     [styles.received]: type === 'received',
                 }
             )}
+            ref={messageRef}
         >
             <div className={styles.header}>
-                <p className={styles.userName}>Reverse bot</p>
-                <p className={styles.time}>14:03</p>
+                {/* eslint-disable-next-line react/prop-types */}
+                <p className={styles.userName}>{author.name}</p>
+                {/* eslint-disable-next-line react/prop-types */}
+                <p className={styles.time}>{time}</p>
             </div>
 
             <p className={styles.text}>
-                message text
+                {text}
             </p>
         </div>
     );
