@@ -1,17 +1,21 @@
 import React, {useEffect} from 'react';
 import './App.module.scss';
-import socketCreation from "./utils/socketCreation";
 import Header from "./components/Header";
 import Chat from "./components/Chat";
 import cn from "classnames";
 import styles from './App.module.scss';
+import {useDispatch} from "react-redux";
+import {connectSocket} from "./redux/actions/socketActions";
+import {setUser} from "./redux/actions/chatActions";
 
 const App = () => {
+    const dispatch = useDispatch();
+
     useEffect(() => {
-        connectToRoom();
+        connectToMessenger();
     }, []);
 
-    const connectToRoom = () => {
+    const connectToMessenger = () => {
         const userInfoFromLocalStorage = localStorage.getItem('userInfo');
         let userInfo;
 
@@ -19,18 +23,8 @@ const App = () => {
             userInfo = JSON.parse(userInfoFromLocalStorage);
         }
 
-        console.log('before socket creation', userInfo);
-        const socket = socketCreation(userInfo);
-
-        socket.emit('join_messenger', userInfo);
-
-        socket.on('receive_list_of_contacts', contacts => {
-            console.log(contacts);
-        });
-
-        socket.on('receive_created_user_info', userInfo => {
-            localStorage.setItem('userInfo', JSON.stringify(userInfo));
-        });
+        dispatch(setUser(userInfo));
+        dispatch(connectSocket(userInfo));
     };
 
     return (
