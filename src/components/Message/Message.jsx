@@ -1,8 +1,8 @@
 import React, {useEffect, useRef} from 'react';
 import styles from './Message.module.scss';
 import cn from "classnames";
+import PropTypes from 'proptypes';
 
-// eslint-disable-next-line react/prop-types
 const Message = ({type, author, time, text}) => {
     const messageRef = useRef();
 
@@ -22,9 +22,7 @@ const Message = ({type, author, time, text}) => {
             ref={messageRef}
         >
             <div className={styles.header}>
-                {/* eslint-disable-next-line react/prop-types */}
                 <p className={styles.userName}>{author.name}</p>
-                {/* eslint-disable-next-line react/prop-types */}
                 <p className={styles.time}>{time}</p>
             </div>
 
@@ -33,6 +31,16 @@ const Message = ({type, author, time, text}) => {
             </p>
         </div>
     );
+};
+
+Message.propTypes = {
+    type: PropTypes.string.isRequired,
+    author: PropTypes.shape({
+        id: PropTypes.number.isRequired,
+        name: PropTypes.string.isRequired,
+    }),
+    time: PropTypes.string.isRequired,
+    text: PropTypes.string.isRequired,
 };
 
 export default Message;

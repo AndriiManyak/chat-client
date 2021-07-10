@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './ContactsSearch.module.scss';
+import PropTypes from 'proptypes';
 
-// eslint-disable-next-line react/prop-types
 const ContactsSearch = ({searchField, setSearchField}) => {
     const handleChange = event => {
         setSearchField(event.target.value);
@@ -24,6 +24,11 @@ const ContactsSearch = ({searchField, setSearchField}) => {
             />
         </form>
     );
+};
+
+ContactsSearch.propTypes = {
+    searchField: PropTypes.string.isRequired,
+    setSearchField: PropTypes.func.isRequired,
 };
 
 export default ContactsSearch;

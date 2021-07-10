@@ -1,9 +1,9 @@
-/* eslint-disable react/prop-types */
 import React from 'react';
 import styles from './Contact.module.scss';
 import cn from "classnames";
 import {useDispatch} from "react-redux";
 import {joinChat} from "../../redux/actions/socketActions";
+import PropTypes from 'proptypes';
 
 const Contact = ({contact}) => {
     const dispatch = useDispatch();
@@ -37,6 +37,16 @@ const Contact = ({contact}) => {
             </div>
         </div>
     );
+};
+
+Contact.propTypes = {
+    contact: PropTypes.shape({
+        id: PropTypes.number.isRequired,
+        name: PropTypes.string.isRequired,
+        description: PropTypes.string.isRequired,
+        image: PropTypes.string.isRequired,
+        isOnline: PropTypes.bool.isRequired,
+    }),
 };
 
 export default Contact;

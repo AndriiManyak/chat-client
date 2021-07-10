@@ -4,11 +4,11 @@ import {useDispatch, useSelector} from "react-redux";
 import {sendMessage} from "../../redux/actions/socketActions";
 import {v4} from "uuid";
 import parseTime from "../../utils/parseTime";
-import {getCurrentUser} from "../../redux/rootReducer";
-
+import {getCurrentUser, getSelectedContact} from "../../redux/rootReducer";
 
 const MessageForm = () => {
     const currentUser = useSelector(getCurrentUser);
+    const selectedContact = useSelector(getSelectedContact);
     const [message, setMessage] = useState('');
     const dispatch = useDispatch();
 
@@ -18,6 +18,7 @@ const MessageForm = () => {
         if(message.trim()) {
             const newMessage = {
                 author: currentUser,
+                receiver: selectedContact,
                 id: v4(),
                 text: message,
                 time: parseTime(new Date()),

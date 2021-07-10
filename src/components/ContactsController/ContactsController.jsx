@@ -1,8 +1,8 @@
 import React from 'react';
 import styles from './ContactsController.module.scss';
 import cn from 'classnames';
+import PropTypes from 'proptypes';
 
-// eslint-disable-next-line react/prop-types
 const ContactsController = ({activeTab, setActiveTab}) => {
     return (
         <div className={styles.controller}>
@@ -31,6 +31,11 @@ const ContactsController = ({activeTab, setActiveTab}) => {
             </div>
         </div>
     );
+};
+
+ContactsController.propTypes = {
+    activeTab: PropTypes.string.isRequired,
+    setActiveTab: PropTypes.func.isRequired,
 };
 
 export default ContactsController;
