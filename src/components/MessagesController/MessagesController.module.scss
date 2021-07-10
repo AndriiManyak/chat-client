@@ -3,5 +3,12 @@
 .controller {
   padding: 15px;
 
+  height: 100%;
   background: #cfdfef;
+}
+
+@media (max-width: $tabletBreakpoint) {
+  .controller {
+    padding: 5px;
+  }
 }

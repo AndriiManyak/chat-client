@@ -25,3 +25,15 @@
 .description {
 
 }
+
+
+@media (max-width: $tabletBreakpoint) {
+  .information {
+    max-height: 75px;
+  }
+
+  .image {
+    height: 75px;
+    width: 75px;
+  }
+}
