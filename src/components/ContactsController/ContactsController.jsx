@@ -1,10 +1,9 @@
-import React, {useState} from 'react';
+import React from 'react';
 import styles from './ContactsController.module.scss';
 import cn from 'classnames';
 
-const ContactsController = () => {
-    const [activeTab, setActiveTab] = useState('online');
-
+// eslint-disable-next-line react/prop-types
+const ContactsController = ({activeTab, setActiveTab}) => {
     return (
         <div className={styles.controller}>
             <div

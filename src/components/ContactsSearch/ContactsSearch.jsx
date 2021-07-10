@@ -1,17 +1,14 @@
-import React, {useState} from 'react';
+import React from 'react';
 import styles from './ContactsSearch.module.scss';
 
-const ContactsSearch = () => {
-    const [searchField, setSearchField] = useState('');
-
+// eslint-disable-next-line react/prop-types
+const ContactsSearch = ({searchField, setSearchField}) => {
     const handleChange = event => {
         setSearchField(event.target.value);
     };
 
     const handleSubmit = event => {
         event.preventDefault();
-
-        setSearchField('');
     };
 
     return (

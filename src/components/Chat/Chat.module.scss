@@ -3,6 +3,7 @@
 .chat {
   display: flex;
   justify-content: space-between;
+  width: 100%;
 
   overflow: hidden;
 }
@@ -23,7 +24,9 @@
   padding-bottom: 15px;
 }
 
-.sidebarTop {}
+.sidebarTop {
+  width: 100%;
+}
 
 .sidebarToggleButton {
   display: none;

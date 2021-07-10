@@ -1,24 +1,38 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
-import botImage from '../../assets/bot_1.jpg';
 import styles from './Contact.module.scss';
+import cn from "classnames";
+import {useDispatch} from "react-redux";
+import {joinChat} from "../../redux/actions/socketActions";
 
-const Contact = () => {
+const Contact = ({contact}) => {
+    const dispatch = useDispatch();
+
+    const selectChat = contact => {
+        dispatch(joinChat(contact));
+    };
+
     return (
-        <div className={styles.contact}>
-            <div className={styles.imageWrapper}>
+        <div className={styles.contact} onClick={() => selectChat(contact)}>
+            <div className={cn(
+                styles.imageWrapper,
+                {
+                    [styles.online]: contact.isOnline,
+                },
+            )}
+            >
                 <img
-                    src={botImage}
-                    alt={""}
+                    src={contact.image}
+                    alt={contact.name}
                     className={styles.image}
                 />
             </div>
 
 
             <div className={styles.information}>
-                <p className={styles.name}>name</p>
+                <p className={styles.name}>{contact.name}</p>
                 <p className={styles.description}>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Nam eu consectetur tortor. Nulla facilisi. Nullam.
+                    {contact.description}
                 </p>
             </div>
         </div>

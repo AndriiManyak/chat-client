@@ -1,25 +1,23 @@
 import React from 'react';
-import botImage from '../../assets/bot_1.jpg';
 import styles from './ContactSelected.module.scss';
+import {useSelector} from "react-redux";
+import {getSelectedContact} from "../../redux/rootReducer";
 
 const ContactSelected = () => {
+    const selectedContact = useSelector(getSelectedContact);
+
     return (
         <div className={styles.contact}>
             <img
-                src={botImage}
-                alt={""}
+                src={selectedContact.image}
+                alt={selectedContact.name}
                 className={styles.image}
             />
 
             <div className={styles.information}>
-                <p className={styles.name}>name</p>
+                <p className={styles.name}>{selectedContact.name}</p>
                 <p className={styles.description}>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Nam eu consectetur tortor. Nulla facilisi. Nullam.
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Nam eu consectetur tortor. Nulla facilisi. Nullam.
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Nam eu consectetur tortor. Nulla facilisi. Nullam.
+                    {selectedContact.description}
                 </p>
             </div>
         </div>

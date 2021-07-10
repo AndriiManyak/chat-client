@@ -17,7 +17,7 @@
       &::after {
         content: "";
         left: 0;
-        transform: translate(-50%, 90%) rotate(45deg);
+        transform: translate(-50%, -90%) rotate(45deg);
       }
     }
   }
@@ -33,7 +33,7 @@
       &::after {
         content: "";
         right: 0;
-        transform: translate(50%, 90%) rotate(45deg) ;
+        transform: translate(50%, -90%) rotate(45deg) ;
       }
     }
   }
@@ -64,7 +64,7 @@
 
   &::after {
     position: absolute;
-    top: 0;
+    bottom: 0;
     display: block;
     height: 15px;
     width: 15px;

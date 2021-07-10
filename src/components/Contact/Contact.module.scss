@@ -24,19 +24,21 @@
 .imageWrapper {
   position: relative;
 
-  &::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    right: 0;
+  &.online {
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      right: 0;
 
-    display: block;
-    width: 15px;
-    height: 15px;
+      display: block;
+      width: 15px;
+      height: 15px;
 
-    border-radius: 50%;
-    background: $lightGreen;
-    transform: translate(25%, 25%);
+      border-radius: 50%;
+      background: $lightGreen;
+      transform: translate(25%, 25%);
+    }
   }
 }
 

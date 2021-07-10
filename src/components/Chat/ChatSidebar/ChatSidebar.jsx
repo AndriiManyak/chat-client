@@ -8,6 +8,8 @@ import arrowLeft from '../../../assets/left_arrow.svg';
 
 const ChatSidebar = () => {
     const [isSidebarActive, setIsSidebarActive] = useState(false);
+    const [activeTab, setActiveTab] = useState('online');
+    const [searchField, setSearchField] = useState('');
 
     const toggleSidebar = () => {
         setIsSidebarActive(prevState => !prevState);
@@ -30,11 +32,11 @@ const ChatSidebar = () => {
                         className={styles.sidebarToggleArrow}
                     />
                 </div>
-                <ContactsController/>
-                <ContactsList/>
+                <ContactsController activeTab={activeTab} setActiveTab={setActiveTab}/>
+                <ContactsList activeTab={activeTab} searchField={searchField}/>
             </div>
 
-            <ContactsSearch/>
+            <ContactsSearch searchField={searchField} setSearchField={setSearchField}/>
         </aside>
     );
 };
