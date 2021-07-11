@@ -32,7 +32,9 @@ const Message = ({type, author, time, text}) => {
                 {text}
             </p>
 
-            <div className={styles.seenLabel}>Seen 4:24pm</div>
+            {
+                type === 'sent' && <div className={styles.seenLabel}>Seen 4:24pm</div>
+            }
         </div>
     );
 };

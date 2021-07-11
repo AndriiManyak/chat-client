@@ -2,7 +2,7 @@ import {
     ADD_CONTACTS,
     ADD_MESSAGE,
     ADD_MESSAGES,
-    SELECT_CONTACT,
+    SELECT_CONTACT, SET_CONTACT_TYPING,
     SET_USER
 } from "./actionConsts";
 
@@ -30,4 +30,9 @@ export const addMessages = messages => ({
 export const selectContact = contact => ({
     type: SELECT_CONTACT,
     payload: contact,
+});
+
+export const setContactIsTyping = isTyping => ({
+    type: SET_CONTACT_TYPING,
+    payload: isTyping,
 });

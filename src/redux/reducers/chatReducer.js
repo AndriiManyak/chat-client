@@ -1,10 +1,18 @@
-import {ADD_CONTACTS, ADD_MESSAGE, ADD_MESSAGES, SELECT_CONTACT, SET_USER} from "../actions/actionConsts";
+import {
+    ADD_CONTACTS,
+    ADD_MESSAGE,
+    ADD_MESSAGES,
+    SELECT_CONTACT,
+    SET_CONTACT_TYPING,
+    SET_USER
+} from "../actions/actionConsts";
 
 const initialState = {
     messages: [],
     contacts: [],
     selectedContact: null,
     user: {},
+    isContactTyping: false,
 };
 
 const chatReducer = (state = initialState, action) => {
@@ -37,6 +45,12 @@ const chatReducer = (state = initialState, action) => {
             return  {
                 ...state,
                 selectedContact: action.payload,
+            };
+        }
+        case SET_CONTACT_TYPING: {
+            return  {
+                ...state,
+                isContactTyping: action.payload,
             };
         }
         default: return state;

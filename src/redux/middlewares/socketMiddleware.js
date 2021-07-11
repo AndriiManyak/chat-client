@@ -1,7 +1,7 @@
 import createSocket from "../../utils/createSocket";
 import {
     CONNECT_SOCKET, JOIN_CHAT,
-    SEND_MESSAGE
+    SEND_MESSAGE, TYPING_MESSAGE
 } from "../actions/actionConsts";
 
 import socketEvents from "./socketEvents";
@@ -30,6 +30,11 @@ const socketMiddleware = () => {
             case JOIN_CHAT: {
                 socket.emit(JOIN_CHAT, action.payload);
                 store.dispatch(selectContact(action.payload));
+
+                break;
+            }
+            case TYPING_MESSAGE: {
+                socket.emit(TYPING_MESSAGE);
 
                 break;
             }

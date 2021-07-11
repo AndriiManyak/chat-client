@@ -1,5 +1,11 @@
-import {addContacts, addMessage, addMessages, setUser} from "../actions/chatActions";
-import {RECEIVE_CONTACTS, RECEIVE_MESSAGE, RECEIVE_MESSAGES, RECEIVE_USER} from "../actions/actionConsts";
+import {addContacts, addMessage, addMessages, setContactIsTyping, setUser} from "../actions/chatActions";
+import {
+    RECEIVE_CONTACTS,
+    RECEIVE_MESSAGE,
+    RECEIVE_MESSAGES,
+    RECEIVE_TYPING_MESSAGE,
+    RECEIVE_USER
+} from "../actions/actionConsts";
 
 
 const onContactsReceive = store => contacts => {
@@ -19,6 +25,22 @@ const onUserReceive = store => user => {
     localStorage.setItem('userInfo', JSON.stringify(user));
 };
 
+const onTypingMessageReceive = store => {
+    let typingTimeout;
+
+    return () => {
+        store.dispatch(setContactIsTyping(true));
+
+        if (typingTimeout) {
+            clearTimeout(typingTimeout);
+        }
+
+        typingTimeout = setTimeout(() => {
+            store.dispatch(setContactIsTyping(false));
+        }, 5000);
+    };
+};
+
 const socketEvents = [
     {
         event: RECEIVE_CONTACTS,
@@ -36,6 +58,10 @@ const socketEvents = [
         event: RECEIVE_MESSAGES,
         handler: onMessagesReceive,
     },
+    {
+        event: RECEIVE_TYPING_MESSAGE,
+        handler: onTypingMessageReceive,
+    }
 ];
 
 export default socketEvents;
