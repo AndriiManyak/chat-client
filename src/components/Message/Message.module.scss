@@ -25,6 +25,10 @@
   &.sent {
     margin-left: auto;
 
+    .userName {
+      color: $brown;
+    }
+
     .header {
       background: $lightOrange;
     }
@@ -52,7 +56,7 @@
 }
 
 .time {
-
+  opacity: 0.5;
 }
 
 .text {
@@ -62,6 +66,8 @@
   background: $white;
   border-radius: 0 0 10px 10px;
   overflow-wrap: anywhere;
+
+  color: $darkSilver;
 
   &::after {
     position: absolute;

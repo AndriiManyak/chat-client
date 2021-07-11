@@ -4,7 +4,7 @@ import styles from './Header.module.scss';
 const Header = () => {
     return (
         <header className={styles.header}>
-            <h1>Chat bots 2.0</h1>
+            <h1 className={styles.title}>Chat bots 2.0</h1>
         </header>
     );
 };
