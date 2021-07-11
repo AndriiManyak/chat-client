@@ -5,7 +5,7 @@ import {getContacts, getCurrentUser} from "../../redux/rootReducer";
 import styles from './ContactsList.module.scss';
 import PropTypes from 'proptypes';
 
-const ContactsList = ({activeTab, searchField}) => {
+const ContactsList = ({activeTab, searchField, toggleSidebar}) => {
     const contacts = useSelector(getContacts);
     const currentUser = useSelector(getCurrentUser);
 
@@ -18,18 +18,23 @@ const ContactsList = ({activeTab, searchField}) => {
 
         return filterResult
             .filter(contact => contact.id !== currentUser.id)
-            .filter(contact => contact.name.includes(searchField));
+            .filter(contact => contact.name.toLowerCase().includes(searchField.toLowerCase()));
     }, [contacts, activeTab, searchField]);
 
     return (
         <ul className={styles.list}>
-            <li className={styles.item}>
-                {
-                    filteredContacts.map(contact => (
-                        <Contact key={contact.id} contact={contact}/>
-                    ))
-                }
-            </li>
+            {
+
+                filteredContacts.map(contact => (
+                    <li
+                        key={contact.id}
+                        className={styles.item}
+                        onClick={toggleSidebar}
+                    >
+                        <Contact contact={contact}/>
+                    </li>
+                ))
+            }
         </ul>
     );
 };
@@ -37,6 +42,7 @@ const ContactsList = ({activeTab, searchField}) => {
 ContactsList.propTypes = {
     activeTab: PropTypes.string.isRequired,
     searchField: PropTypes.string.isRequired,
+    toggleSidebar: PropTypes.func.isRequired,
 };
 
 export default ContactsList;
