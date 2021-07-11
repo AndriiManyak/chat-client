@@ -1,7 +1,8 @@
 import {
     CONNECT_SOCKET,
     JOIN_CHAT,
-    SEND_MESSAGE, TYPING_MESSAGE
+    SEND_MESSAGE,
+    TYPING_MESSAGE
 } from "./actionConsts";
 
 export const connectSocket = handshakeQueryData => ({
@@ -19,6 +20,6 @@ export const joinChat = userToConnect => ({
    payload: userToConnect,
 });
 
-export const sentTypingMessage = () => ({
+export const sendTypingMessage = () => ({
     type: TYPING_MESSAGE,
 });

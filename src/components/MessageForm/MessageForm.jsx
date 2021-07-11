@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import styles from './MessageForm.module.scss';
 import {useDispatch, useSelector} from "react-redux";
-import {sendMessage, sentTypingMessage} from "../../redux/actions/socketActions";
+import {sendMessage, sendTypingMessage} from "../../redux/actions/socketActions";
 import {getCurrentUser, getIsContactTyping, getSelectedContact} from "../../redux/rootReducer";
 import {v4} from "uuid";
 
@@ -35,7 +35,7 @@ const MessageForm = () => {
     useEffect(() => {
         if (!isCurrentUserTyping && message.length > 0) {
             setIsCurrentUserTyping(true);
-            dispatch(sentTypingMessage());
+            dispatch(sendTypingMessage());
 
             setTimeout(() => {
                 setIsCurrentUserTyping(false);

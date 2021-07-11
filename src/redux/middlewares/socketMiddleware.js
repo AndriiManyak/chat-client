@@ -1,7 +1,9 @@
 import createSocket from "../../utils/createSocket";
 import {
-    CONNECT_SOCKET, JOIN_CHAT,
-    SEND_MESSAGE, TYPING_MESSAGE
+    CONNECT_SOCKET,
+    JOIN_CHAT,
+    SEND_MESSAGE,
+    TYPING_MESSAGE
 } from "../actions/actionConsts";
 
 import socketEvents from "./socketEvents";

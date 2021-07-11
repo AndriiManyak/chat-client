@@ -5,7 +5,8 @@ import PropTypes from 'proptypes';
 import {UserShape} from "../../shapes/UserShape";
 import parseTime from "../../utils/parseTime";
 
-const Message = ({type, author, time, text}) => {
+// eslint-disable-next-line
+const Message = ({type, author, time, text, seenTime}) => {
     const messageRef = useRef();
 
     useEffect(() => {
@@ -33,7 +34,7 @@ const Message = ({type, author, time, text}) => {
             </p>
 
             {
-                type === 'sent' && <div className={styles.seenLabel}>Seen 4:24pm</div>
+                (type === 'sent' && seenTime) && <div className={styles.seenLabel}>Seen {parseTime(seenTime).toLowerCase()}</div>
             }
         </div>
     );
