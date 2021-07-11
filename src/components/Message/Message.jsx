@@ -3,6 +3,7 @@ import styles from './Message.module.scss';
 import cn from "classnames";
 import PropTypes from 'proptypes';
 import {UserShape} from "../../shapes/UserShape";
+import parseTime from "../../utils/parseTime";
 
 const Message = ({type, author, time, text}) => {
     const messageRef = useRef();
@@ -24,7 +25,7 @@ const Message = ({type, author, time, text}) => {
         >
             <div className={styles.header}>
                 <p className={styles.userName}>{author.name}</p>
-                <p className={styles.time}>{time}</p>
+                <p className={styles.time}>{parseTime(time)}</p>
             </div>
 
             <p className={styles.text}>
@@ -37,7 +38,7 @@ const Message = ({type, author, time, text}) => {
 Message.propTypes = {
     type: PropTypes.string.isRequired,
     author: UserShape,
-    time: PropTypes.string.isRequired,
+    time: PropTypes.oneOfType([PropTypes.string, PropTypes.instanceOf(Date)]).isRequired,
     text: PropTypes.string.isRequired,
 };
 
