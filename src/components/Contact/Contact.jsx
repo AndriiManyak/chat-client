@@ -3,7 +3,7 @@ import styles from './Contact.module.scss';
 import cn from "classnames";
 import {useDispatch} from "react-redux";
 import {joinChat} from "../../redux/actions/socketActions";
-import PropTypes from 'proptypes';
+import {UserShape} from "../../shapes/UserShape";
 
 const Contact = ({contact}) => {
     const dispatch = useDispatch();
@@ -40,13 +40,7 @@ const Contact = ({contact}) => {
 };
 
 Contact.propTypes = {
-    contact: PropTypes.shape({
-        id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
-        name: PropTypes.string.isRequired,
-        description: PropTypes.string.isRequired,
-        image: PropTypes.string.isRequired,
-        isOnline: PropTypes.bool.isRequired,
-    }),
+    contact: UserShape,
 };
 
 export default Contact;

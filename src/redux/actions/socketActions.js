@@ -2,7 +2,7 @@ import {
     CONNECT_SOCKET,
     JOIN_CHAT,
     SEND_MESSAGE
-} from "../actionConsts";
+} from "./actionConsts";
 
 export const connectSocket = handshakeQueryData => ({
     type: CONNECT_SOCKET,

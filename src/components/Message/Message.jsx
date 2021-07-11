@@ -2,6 +2,7 @@ import React, {useEffect, useRef} from 'react';
 import styles from './Message.module.scss';
 import cn from "classnames";
 import PropTypes from 'proptypes';
+import {UserShape} from "../../shapes/UserShape";
 
 const Message = ({type, author, time, text}) => {
     const messageRef = useRef();
@@ -35,10 +36,7 @@ const Message = ({type, author, time, text}) => {
 
 Message.propTypes = {
     type: PropTypes.string.isRequired,
-    author: PropTypes.shape({
-        id: PropTypes.number.isRequired,
-        name: PropTypes.string.isRequired,
-    }),
+    author: UserShape,
     time: PropTypes.string.isRequired,
     text: PropTypes.string.isRequired,
 };

@@ -1,9 +1,9 @@
-import {ADD_CONTACTS, ADD_MESSAGE, ADD_MESSAGES, SELECT_CONTACT, SET_USER} from "../actionConsts";
+import {ADD_CONTACTS, ADD_MESSAGE, ADD_MESSAGES, SELECT_CONTACT, SET_USER} from "../actions/actionConsts";
 
 const initialState = {
     messages: [],
     contacts: [],
-    selectedContact: {},
+    selectedContact: null,
     user: {},
 };
 

@@ -1,5 +1,5 @@
 import {addContacts, addMessage, addMessages, setUser} from "../actions/chatActions";
-import {RECEIVE_CONTACTS, RECEIVE_MESSAGE, RECEIVE_MESSAGES, RECEIVE_USER} from "../actionConsts";
+import {RECEIVE_CONTACTS, RECEIVE_MESSAGE, RECEIVE_MESSAGES, RECEIVE_USER} from "../actions/actionConsts";
 
 
 const onContactsReceive = store => contacts => {

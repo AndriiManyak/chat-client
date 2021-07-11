@@ -2,7 +2,7 @@ import createSocket from "../../utils/createSocket";
 import {
     CONNECT_SOCKET, JOIN_CHAT,
     SEND_MESSAGE
-} from "../actionConsts";
+} from "../actions/actionConsts";
 
 import socketEvents from "./socketEvents";
 import {addMessage, selectContact} from "../actions/chatActions";
@@ -31,7 +31,6 @@ const socketMiddleware = () => {
                 socket.emit(JOIN_CHAT, action.payload);
                 store.dispatch(selectContact(action.payload));
 
-                console.log('join_chat');
                 break;
             }
             default:

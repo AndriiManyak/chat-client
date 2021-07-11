@@ -33,7 +33,11 @@ const ChatSidebar = () => {
                     />
                 </div>
                 <ContactsController activeTab={activeTab} setActiveTab={setActiveTab}/>
-                <ContactsList activeTab={activeTab} searchField={searchField}/>
+                <ContactsList
+                    activeTab={activeTab}
+                    searchField={searchField}
+                    toggleSidebar={toggleSidebar}
+                />
             </div>
 
             <ContactsSearch searchField={searchField} setSearchField={setSearchField}/>

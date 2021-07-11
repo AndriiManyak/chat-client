@@ -1,11 +1,8 @@
 import React from 'react';
 import styles from './ContactSelected.module.scss';
-import {useSelector} from "react-redux";
-import {getSelectedContact} from "../../redux/rootReducer";
+import {UserShape} from "../../shapes/UserShape";
 
-const ContactSelected = () => {
-    const selectedContact = useSelector(getSelectedContact);
-
+const ContactSelected = ({selectedContact}) => {
     return (
         <div className={styles.contact}>
             <img
@@ -22,6 +19,10 @@ const ContactSelected = () => {
             </div>
         </div>
     );
+};
+
+ContactSelected.propTypes = {
+    selectedContact: UserShape,
 };
 
 export default ContactSelected;

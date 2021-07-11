@@ -4,7 +4,7 @@ import {
     ADD_MESSAGES,
     SELECT_CONTACT,
     SET_USER
-} from "../actionConsts";
+} from "./actionConsts";
 
 
 export const setUser = user => ({
