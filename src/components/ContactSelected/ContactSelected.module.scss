@@ -8,12 +8,12 @@
 .image {
   height: 150px;
   width: 150px;
-  object-fit: contain;
+  object-fit: cover;
 }
 
 .information {
   max-height: 150px;
-  padding: 20px;
+  padding: 10px;
 
   overflow: hidden;
 }
@@ -30,6 +30,7 @@
 @media (max-width: $tabletBreakpoint) {
   .information {
     max-height: 75px;
+    padding: 5px;
   }
 
   .image {
