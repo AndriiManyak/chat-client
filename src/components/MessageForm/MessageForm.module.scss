@@ -3,8 +3,19 @@
 .form {
   display: flex;
   justify-content: space-between;
+  position: relative;
 
   padding-top: 20px;
+}
+
+.typingLabel {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+
+  color: $blue;
+  font-size: 14px;
 }
 
 .messageInput {

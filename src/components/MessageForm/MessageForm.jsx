@@ -35,6 +35,8 @@ const MessageForm = () => {
 
     return (
         <form onSubmit={handleSubmit} className={styles.form} >
+            <div className={styles.typingLabel}>{selectedContact.name} is typing...</div>
+
             <input
                 className={styles.messageInput}
                 type="text"
