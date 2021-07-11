@@ -1,0 +1,17 @@
+@import './vars';
+
+@mixin scrollStyle($size, $trackColor, $thumbColor) {
+  &::-webkit-scrollbar {
+    width: $size;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: $trackColor;
+    border-radius: $size;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: $thumbColor;
+    border-radius: $size;
+  }
+}
