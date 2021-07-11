@@ -31,6 +31,8 @@ const Message = ({type, author, time, text}) => {
             <p className={styles.text}>
                 {text}
             </p>
+
+            <div className={styles.seenLabel}>Seen 4:24pm</div>
         </div>
     );
 };
