@@ -6,14 +6,13 @@ import {getCurrentUser, getIsContactTyping, getSelectedContact} from "../../redu
 import {v4} from "uuid";
 
 const MessageForm = () => {
+    const dispatch = useDispatch();
     const currentUser = useSelector(getCurrentUser);
     const selectedContact = useSelector(getSelectedContact);
     const isContactTyping = useSelector(getIsContactTyping);
 
     const [message, setMessage] = useState('');
     const [isCurrentUserTyping, setIsCurrentUserTyping] = useState(false);
-
-    const dispatch = useDispatch();
 
     const handleSubmit = event => {
         event.preventDefault();
