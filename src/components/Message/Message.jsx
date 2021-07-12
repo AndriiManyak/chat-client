@@ -1,18 +1,11 @@
-import React, {useEffect, useRef} from 'react';
+import React from 'react';
 import styles from './Message.module.scss';
 import cn from "classnames";
 import PropTypes from 'proptypes';
 import {UserShape} from "../../shapes/UserShape";
 import parseTime from "../../utils/parseTime";
 
-// eslint-disable-next-line
 const Message = ({type, author, time, text, seenTime}) => {
-    const messageRef = useRef();
-
-    useEffect(() => {
-        if (messageRef.current) messageRef.current.scrollIntoView({behavior: 'smooth'});
-    });
-
     return (
         <div
             className={cn(
@@ -22,7 +15,6 @@ const Message = ({type, author, time, text, seenTime}) => {
                     [styles.received]: type === 'received',
                 }
             )}
-            ref={messageRef}
         >
             <div className={styles.header}>
                 <p className={styles.userName}>{author.name}</p>
@@ -45,6 +37,7 @@ Message.propTypes = {
     author: UserShape,
     time: PropTypes.oneOfType([PropTypes.string, PropTypes.instanceOf(Date)]).isRequired,
     text: PropTypes.string.isRequired,
+    seenTime: PropTypes.string,
 };
 
 export default Message;
