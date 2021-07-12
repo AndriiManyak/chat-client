@@ -5,7 +5,6 @@ import PropTypes from 'proptypes';
 import {UserShape} from "../../shapes/UserShape";
 import parseTime from "../../utils/parseTime";
 
-// eslint-disable-next-line
 const Message = ({type, author, time, text, seenTime}) => {
     const messageRef = useRef();
 
@@ -45,6 +44,7 @@ Message.propTypes = {
     author: UserShape,
     time: PropTypes.oneOfType([PropTypes.string, PropTypes.instanceOf(Date)]).isRequired,
     text: PropTypes.string.isRequired,
+    seenTime: PropTypes.string,
 };
 
 export default Message;
