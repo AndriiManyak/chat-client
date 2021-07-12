@@ -1,0 +1,85 @@
+@import 'src/styles/app';
+
+.message {
+  width: 80%;
+  position: relative;
+
+  border-radius: 10px;
+  box-shadow: 0 0 10px 2px rgba(0,0,0,0.4);
+
+  &.received {
+    margin-right: auto;
+
+    .header {
+      background: $lightBlue;
+    }
+
+    .text {
+      &::after {
+        content: "";
+        left: 0;
+        transform: translate(-50%, -90%) rotate(45deg);
+      }
+    }
+  }
+
+  &.sent {
+    margin-left: auto;
+
+    .header {
+      background: $lightOrange;
+    }
+
+    .text {
+      &::after {
+        content: "";
+        right: 0;
+        transform: translate(50%, -90%) rotate(45deg) ;
+      }
+    }
+  }
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+
+  padding: 15px;
+  border-radius: 10px 10px 0 0;
+}
+
+.userName {
+  opacity: 0.8;
+}
+
+.time {
+  opacity: 0.5;
+}
+
+.text {
+  position: relative;
+
+  padding: 15px;
+  background: $white;
+  border-radius: 0 0 10px 10px;
+  overflow-wrap: anywhere;
+
+  color: $darkSilver;
+
+  &::after {
+    position: absolute;
+    bottom: 0;
+    display: block;
+    height: 15px;
+    width: 15px;
+    background: $white;
+  }
+}
+
+.seenLabel {
+  position: absolute;
+  transform: translate(25%, 50%);
+
+  font-size: 12px;
+  opacity: 0.5;
+}

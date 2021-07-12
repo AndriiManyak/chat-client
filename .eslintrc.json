@@ -12,6 +12,7 @@
         "browser": true
     },
     "globals": {
-        "document": false
+        "document": false,
+        "process": true
     }
 }

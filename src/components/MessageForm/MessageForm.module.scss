@@ -1,0 +1,42 @@
+@import 'src/styles/app';
+
+.form {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+
+  padding-top: 20px;
+}
+
+.typingLabel {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+
+  color: $blue;
+  font-size: 14px;
+}
+
+.messageInput {
+  outline: none;
+  padding: 10px;
+  width: 75%;
+
+  border: 1px solid $silver;
+  border-radius: 5px;
+
+  &:focus {
+    border-color: $blue;
+  }
+}
+
+.submitButton {
+  width: 20%;
+  border: none;
+  background: $blue;
+  color: $white;
+  border-radius: 5px;
+
+  cursor: pointer;
+}

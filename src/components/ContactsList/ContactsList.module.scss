@@ -1,0 +1,12 @@
+@import 'src/styles/app';
+
+.list {
+  height: 90%;
+  overflow: auto;
+
+  @include scrollStyle(5px, $white, $darkSilver);
+}
+
+.item {
+
+}

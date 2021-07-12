@@ -1,0 +1,15 @@
+@import 'src/styles/app';
+
+.controller {
+  padding: 15px;
+
+  height: calc(100% - 150px);
+  background: #cfdfef;
+}
+
+@media (max-width: $tabletBreakpoint) {
+  .controller {
+    padding: 5px;
+    height: calc(100% - 75px);
+  }
+}
