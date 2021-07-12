@@ -15,11 +15,13 @@
   max-height: 150px;
   padding: 10px;
 
-  overflow: hidden;
+  overflow-y: auto;
+
+  @include scrollStyle(5px, $lightBlue, $darkSilver)
 }
 
 .name {
-  margin-bottom: 10px;
+  margin-bottom: 5px;
 
   font-size: 24px;
 }
@@ -38,5 +40,9 @@
   .image {
     height: 75px;
     width: 75px;
+  }
+
+  .name {
+    font-size: 20px;
   }
 }
