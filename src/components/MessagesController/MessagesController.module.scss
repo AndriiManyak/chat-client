@@ -1,9 +1,13 @@
 @import 'src/styles/app';
 
 .controller {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: calc(100% - 150px);
+
   padding: 15px;
 
-  height: calc(100% - 150px);
   background: #cfdfef;
 }
 

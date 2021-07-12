@@ -6,8 +6,8 @@
 ## Local deployment
 
 ### Dependencies
-* Node v14.7.0
-* NPM v6.14.7
+* Node v14.15.1
+* NPM v7.11.2
 * React v17.0.2
 
 ### Installing
