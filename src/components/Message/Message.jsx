@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useRef} from 'react';
 import styles from './Message.module.scss';
 import cn from "classnames";
 import PropTypes from 'proptypes';
@@ -6,6 +6,12 @@ import {UserShape} from "../../shapes/UserShape";
 import parseTime from "../../utils/parseTime";
 
 const Message = ({type, author, time, text, seenTime}) => {
+    const messageRef = useRef();
+
+    useEffect(() => {
+        if (messageRef.current) messageRef.current.scrollIntoView({behavior: 'smooth'});
+    });
+
     return (
         <div
             className={cn(
@@ -15,6 +21,7 @@ const Message = ({type, author, time, text, seenTime}) => {
                     [styles.received]: type === 'received',
                 }
             )}
+            ref={messageRef}
         >
             <div className={styles.header}>
                 <p className={styles.userName}>{author.name}</p>
